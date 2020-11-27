@@ -1,0 +1,220 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+        <variable
+            name="viewModel"
+            type="com.enclave.recipeapp.activities.recipe.RecipeModel" />
+    </data>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_marginTop="?actionBarSize"
+        android:layout_height="match_parent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:orientation="vertical"
+            android:focusable="true"
+            android:focusableInTouchMode="true"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fitsSystemWindows="true">
+
+            <TextView
+                android:id="@+id/lbRecipeName"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="@color/black"
+                android:text="@string/label_name"
+                android:textSize="@dimen/text_size_18"
+                android:layout_margin="@dimen/margin_16"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintTop_toTopOf="parent"/>
+
+            <EditText
+                android:id="@+id/edtRecipeName"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="text"
+                android:padding="@dimen/space_vertical"
+                android:layout_marginEnd="@dimen/space_vertical"
+                android:textSize="@dimen/text_size_16"
+                android:imeOptions="actionDone"
+                android:textColorHint="@color/grey_100"
+                android:textColor="@color/black"
+                android:layout_margin="@dimen/margin_16"
+                android:hint="@string/label_recipe_name"
+                android:background="@drawable/shape_custom"
+                app:layout_constraintTop_toBottomOf="@+id/lbRecipeName"
+                app:layout_constraintLeft_toLeftOf="parent" />
+
+            <TextView
+                android:id="@+id/lbRecipeType"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/label_recipe_type"
+                android:textSize="@dimen/text_size_18"
+                android:textColor="@color/black"
+                android:layout_margin="@dimen/margin_16"
+                app:layout_constraintTop_toBottomOf="@+id/edtRecipeName"
+                app:layout_constraintLeft_toLeftOf="parent"/>
+
+            <Spinner
+                android:id="@+id/spinnerRecipeTypes"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="@dimen/space_vertical"
+                android:layout_margin="@dimen/margin_16"
+                style="@style/SpinnerAppTheme"
+                app:layout_constraintTop_toBottomOf="@+id/lbRecipeType"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"/>
+
+            <View
+                android:id="@+id/lbSpace"
+                android:layout_height="@dimen/margin_32"
+                android:layout_width="match_parent"
+                android:layout_margin="@dimen/margin_16"
+                app:layout_constraintTop_toBottomOf="@+id/spinnerRecipeTypes"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"/>
+
+            <TextView
+                android:id="@+id/lbRecipeThumbnail"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/label_recipe_image"
+                android:textSize="@dimen/text_size_18"
+                android:textColor="@color/black"
+                android:layout_margin="@dimen/margin_16"
+                app:layout_constraintTop_toBottomOf="@+id/lbSpace"
+                app:layout_constraintLeft_toLeftOf="parent"/>
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:visibility="gone"
+                android:id="@+id/ctlsRecipeImage"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/margin_16"
+                app:layout_constraintTop_toBottomOf="@+id/lbRecipeThumbnail"
+                app:layout_constraintDimensionRatio="3:1"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent">
+
+                <ImageView
+                    android:id="@+id/imgPicture"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:importantForAccessibility="no"
+                    android:background="@drawable/recipe_image"
+                    android:adjustViewBounds="true"
+                    android:layout_centerInParent="true"/>
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:visibility="gone"
+                android:id="@+id/ctlsRecipeIngredients"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/margin_16"
+                android:background="@drawable/shape_custom"
+                app:layout_constraintTop_toBottomOf="@+id/ctlsRecipeImage"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent">
+
+                <EditText
+                    android:id="@+id/edtIngredient"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:inputType="text"
+                    android:padding="@dimen/space_vertical"
+                    android:layout_marginEnd="@dimen/space_vertical"
+                    android:textSize="@dimen/text_size_16"
+                    android:imeOptions="actionDone"
+                    android:hint="@string/label_recipe_ingredient"
+                    android:background="@drawable/shape_custom"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toLeftOf="@+id/btnIngredientDone"/>
+
+                <ImageView
+                    android:id="@+id/btnIngredientDone"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/ic_done"
+                    android:importantForAccessibility="no"
+                    android:layout_marginEnd="@dimen/space_vertical"
+                    android:layout_marginTop="@dimen/space_vertical"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintRight_toRightOf="parent"/>
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/rcvIngredients"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:clipToPadding="false"
+                    android:overScrollMode="never"
+                    android:layout_marginTop="@dimen/space_vertical"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/edtIngredient" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:visibility="gone"
+                android:id="@+id/ctlsRecipeSteps"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/margin_16"
+                android:background="@drawable/shape_custom"
+                app:layout_constraintTop_toBottomOf="@+id/ctlsRecipeIngredients"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent">
+
+                <EditText
+                    android:id="@+id/edtStep"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:inputType="text"
+                    android:padding="@dimen/space_vertical"
+                    android:imeOptions="actionDone"
+                    android:layout_marginEnd="@dimen/space_vertical"
+                    android:textSize="@dimen/text_size_16"
+                    android:hint="@string/label_recipe_steps"
+                    android:background="@drawable/shape_custom"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toLeftOf="@+id/btnStepDone"/>
+
+                <ImageView
+                    android:id="@+id/btnStepDone"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/ic_done"
+                    android:importantForAccessibility="no"
+                    android:layout_marginEnd="@dimen/space_vertical"
+                    android:layout_marginTop="@dimen/space_vertical"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintRight_toRightOf="parent"/>
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/rcvSteps"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:clipToPadding="false"
+                    android:overScrollMode="never"
+                    android:layout_marginTop="@dimen/space_vertical"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/edtStep" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </ScrollView>
+
+</layout>

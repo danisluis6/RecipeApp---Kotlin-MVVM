@@ -1,0 +1,29 @@
+<resources>16
+    <!-- padding item recipe type -->
+    <dimen name="margin_32">32dp</dimen>
+    <dimen name="margin_16">16dp</dimen>
+    <dimen name="margin_8">8dp</dimen>
+
+    <!-- Font size -->
+    <dimen name="text_size_14">14sp</dimen>
+    <dimen name="text_size_16">16sp</dimen>
+    <dimen name="text_size_18">18sp</dimen>
+
+    <dimen name="space_vertical">16sp</dimen>
+
+
+    <dimen name="text_size_sub">14sp</dimen>
+
+    <dimen name="radius_3">3dp</dimen>
+    <dimen name="radius_5">5dp</dimen>
+    <dimen name="radius_10">10dp</dimen>
+    <dimen name="radius_20">20dp</dimen>
+
+
+    <dimen name="screen_margin">16dp</dimen>
+
+
+    <dimen name="thumbnail_recipe_size">80dp</dimen>
+    <dimen name="fab_size">64dp</dimen>
+    <dimen name="fab_margin">16dp</dimen>
+</resources>
