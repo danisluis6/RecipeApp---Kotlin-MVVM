@@ -1,6 +1,14 @@
 package com.enclave.recipeapp.activities.recipe
 
+import android.content.Context
+import android.content.Intent
+import android.provider.MediaStore
+import android.view.View
+import androidx.databinding.ObservableBoolean
 import androidx.lifecycle.ViewModel
+import com.enclave.recipeapp.frameworks.utilities.Constant
+import org.koin.core.KoinComponent
+import org.koin.core.inject
 
 /*
  *
@@ -27,10 +35,21 @@ import androidx.lifecycle.ViewModel
  * +--------------------------------------------------------------------------
  */
 
-class RecipeModel : ViewModel() {
+class RecipeModel : ViewModel(), KoinComponent {
+
+    val labelPicture = ObservableBoolean(false)
+    val imgPicture = ObservableBoolean(false)
+
+    private val context: Context by inject()
+    private lateinit var mActivity: RecipeActivity
 
     fun handleView(activity: RecipeActivity) {
+        mActivity = activity
+    }
 
+    fun onUploadImage() {
+        val pickPhoto = Intent(Intent.ACTION_PICK, MediaStore.Images.Media.EXTERNAL_CONTENT_URI)
+        mActivity.startActivityForResult(pickPhoto, Constant.GALLERY)
     }
 
 }

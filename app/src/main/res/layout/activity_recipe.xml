@@ -8,6 +8,9 @@
         <variable
             name="viewModel"
             type="com.enclave.recipeapp.activities.recipe.RecipeModel" />
+        <variable
+            name="binding"
+            type="com.enclave.recipeapp.databinding.ActivityRecipeBinding" />
     </data>
 
     <androidx.coordinatorlayout.widget.CoordinatorLayout
@@ -33,7 +36,7 @@
         <include
             android:id="@+id/contentView"
             layout="@layout/content_recipe"
-            bind:viewModel="@{viewModel}"/>
+            bind:viewModel="@{viewModel}" />
 
         <com.google.android.material.floatingactionbutton.FloatingActionButton
             android:id="@+id/fab"

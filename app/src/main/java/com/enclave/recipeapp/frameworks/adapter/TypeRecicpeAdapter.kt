@@ -4,12 +4,10 @@ import android.content.Context
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.ArrayAdapter
 import android.widget.BaseAdapter
 import android.widget.TextView
 import com.enclave.recipeapp.R
 import com.enclave.recipeapp.localstorage.entities.RecipeType
-import org.koin.core.KoinComponent
 
 
 /*
@@ -43,14 +41,14 @@ class TypeRecicpeAdapter(val context: Context, private var recipeTypes: List<Rec
 
     override fun getView(position: Int, convertView: View?, parent: ViewGroup?): View {
         val view: View?
-        val vh: ListRowHolder
+        val vh: SpinnerRowHolder
         if (convertView == null) {
             view = this.mInflator.inflate(R.layout.recipe_type_view, parent, false)
-            vh = ListRowHolder(view)
+            vh = SpinnerRowHolder(view)
             view!!.tag = vh
         } else {
             view = convertView
-            vh = view.tag as ListRowHolder
+            vh = view.tag as SpinnerRowHolder
         }
 
         vh.label.text = recipeTypes[position].name
@@ -74,7 +72,7 @@ class TypeRecicpeAdapter(val context: Context, private var recipeTypes: List<Rec
         notifyDataSetChanged()
     }
 
-    private class ListRowHolder(row: View?) {
+    private class SpinnerRowHolder(row: View?) {
         val label: TextView = row?.findViewById(R.id.recipeTypeName) as TextView
     }
 

@@ -3,6 +3,8 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <data>
+        <import type="android.view.View"/>
+
         <variable
             name="viewModel"
             type="com.enclave.recipeapp.activities.recipe.RecipeModel" />
@@ -64,7 +66,7 @@
                 android:id="@+id/spinnerRecipeTypes"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:padding="@dimen/space_vertical"
+                android:padding="@dimen/margin_8"
                 android:layout_margin="@dimen/margin_16"
                 style="@style/SpinnerAppTheme"
                 app:layout_constraintTop_toBottomOf="@+id/lbRecipeType"
@@ -83,24 +85,39 @@
                 app:layout_constraintLeft_toLeftOf="parent"/>
 
             <androidx.constraintlayout.widget.ConstraintLayout
-                android:visibility="gone"
                 android:id="@+id/ctlsRecipeImage"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="240dp"
                 android:layout_margin="@dimen/margin_16"
+                android:onClick="@{(view) -> viewModel.onUploadImage()}"
                 app:layout_constraintTop_toBottomOf="@+id/lbRecipeThumbnail"
+                android:background="@drawable/shape_custom"
                 app:layout_constraintDimensionRatio="3:1"
                 app:layout_constraintLeft_toLeftOf="parent"
                 app:layout_constraintRight_toRightOf="parent">
 
+                <TextView
+                    android:id="@+id/labelPicture"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:textAlignment="center"
+                    android:gravity="center"
+                    android:text="@string/label_hint_recipe_image"
+                    android:textSize="@dimen/text_size_sub"
+                    android:visible="@{viewModel.labelPicture ? View.VISIBLE : View.GONE}"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintLeft_toLeftOf="parent"/>
+
                 <ImageView
                     android:id="@+id/imgPicture"
+                    android:visibility="gone"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:importantForAccessibility="no"
-                    android:background="@drawable/recipe_image"
+                    android:scaleType="centerInside"
                     android:adjustViewBounds="true"
-                    android:layout_centerInParent="true"/>
+                    android:layout_centerInParent="true"
+                    android:visible="@{viewModel.imgPicture ? View.VISIBLE : View.GONE}"/>
 
             </androidx.constraintlayout.widget.ConstraintLayout>
 

@@ -29,5 +29,8 @@ class Constant {
     companion object {
         const val Recipe = "recipe"
         const val Name = "name"
+
+        const val PERMISSION = 1
+        const val GALLERY = 2
     }
 }

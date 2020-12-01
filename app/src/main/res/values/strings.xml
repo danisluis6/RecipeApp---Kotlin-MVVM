@@ -12,6 +12,7 @@
     <string name="error_permission" translatable="false">Permission denied</string>
     <string name="label_recipe_type">Recipe Types</string>
     <string name="label_recipe_image">Insert images to Recipes</string>
+    <string name="label_hint_recipe_image">Tab and upload your recipe image(*)</string>
 
 
     <string name="label_recipe_ingredient">New Ingredient(*)</string>
