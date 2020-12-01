@@ -69,7 +69,7 @@ class TypeRecicpeAdapter(val context: Context, private var recipeTypes: List<Rec
         return recipeTypes.size
     }
 
-    fun update(recipeTypes: ArrayList<RecipeType>) {
+    fun sync(recipeTypes: ArrayList<RecipeType>) {
         this.recipeTypes = recipeTypes
         notifyDataSetChanged()
     }

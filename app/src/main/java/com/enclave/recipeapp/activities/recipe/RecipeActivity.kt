@@ -45,8 +45,8 @@ class RecipeActivity : BaseActivity(), KoinComponent {
 
     private val context: Context by inject()
     private val xmlParserUtils: XmlParserUtils by inject()
+    private val typeRecicpeAdapter : TypeRecicpeAdapter by inject()
 
-    private lateinit var recipeTypesAdapter: TypeRecicpeAdapter
     private lateinit var binding: ActivityRecipeBinding
     private lateinit var viewModel: RecipeModel
 
@@ -54,11 +54,8 @@ class RecipeActivity : BaseActivity(), KoinComponent {
     override fun bindingView() {
         window.decorView.systemUiVisibility = View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR
         binding = DataBindingUtil.setContentView(this, R.layout.activity_recipe)
-
-        recipeTypesAdapter = TypeRecicpeAdapter(context, ArrayList())
-
         binding.contentView.spinnerRecipeTypes.apply {
-            adapter = recipeTypesAdapter
+            adapter = typeRecicpeAdapter
         }
     }
 
@@ -83,7 +80,8 @@ class RecipeActivity : BaseActivity(), KoinComponent {
 
         val xmlPullParser = xmlParserUtils.getXmlPullParser(R.raw.recipetypes) as XmlPullParser
         val recipeTypes = xmlParserUtils.processParsing(xmlPullParser)
-        recipeTypesAdapter.update(recipeTypes)
+        typeRecicpeAdapter.sync(recipeTypes)
+
     }
 
     override fun onBackPressed() {

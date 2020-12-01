@@ -1,6 +1,7 @@
 package com.enclave.recipeapp
 
 import android.app.Application
+import com.vogo.geographyintellect.frameworks.di.module.adapterModule
 import com.vogo.geographyintellect.frameworks.di.module.appModule
 import org.koin.android.ext.koin.androidContext
 import org.koin.core.context.startKoin
@@ -35,7 +36,7 @@ class RecipeApplication : Application() {
     override fun onCreate() {
         startKoin{
             androidContext(this@RecipeApplication)
-            modules(appModule)
+            modules(appModule, adapterModule)
         }
         super.onCreate()
     }
