@@ -93,7 +93,6 @@ class RecipeActivity : BaseActivity(), KoinComponent {
         val xmlPullParser = xmlParserUtils.getXmlPullParser(R.raw.recipetypes) as XmlPullParser
         val recipeTypes = xmlParserUtils.processParsing(xmlPullParser)
         typeRecicpeAdapter.sync(recipeTypes)
-
     }
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {

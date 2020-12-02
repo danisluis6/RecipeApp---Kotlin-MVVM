@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:bind="http://schemas.android.com/apk/res-auto">
 
     <data>
         <import type="android.view.View"/>
@@ -104,7 +105,7 @@
                     android:gravity="center"
                     android:text="@string/label_hint_recipe_image"
                     android:textSize="@dimen/text_size_sub"
-                    android:visible="@{viewModel.labelPicture ? View.VISIBLE : View.GONE}"
+                    bind:visible="@{viewModel.labelPicture}"
                     app:layout_constraintTop_toTopOf="parent"
                     app:layout_constraintLeft_toLeftOf="parent"/>
 
@@ -117,7 +118,7 @@
                     android:scaleType="centerInside"
                     android:adjustViewBounds="true"
                     android:layout_centerInParent="true"
-                    android:visible="@{viewModel.imgPicture ? View.VISIBLE : View.GONE}"/>
+                    bind:visible="@{viewModel.imgPicture}" />
 
             </androidx.constraintlayout.widget.ConstraintLayout>
 
